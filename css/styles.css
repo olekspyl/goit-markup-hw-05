@@ -29,11 +29,7 @@ body {
 .link{
     text-decoration: none;
     color: currentColor;
-    transition: 
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
 }
 
 
@@ -92,9 +88,7 @@ img {
     position: relative;
     display: flex;
     margin-left: 93px;
-    
-
-}
+    }
 
 .header-item + .header-item {
 margin-left: 50px;
@@ -127,6 +121,7 @@ margin-left: 50px;
     color: var(--first-header-color);
     padding: 32px 0px;
     display: block;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1)
 
 }
 
@@ -141,8 +136,8 @@ margin-left: 50px;
 
 .this-item {
     color: var(--accent-text-color);
-
 }
+
 
 .header-contacts-list {
 display: flex;
@@ -161,6 +156,7 @@ margin-left: auto;
 .header-mail, .header-tel {
 padding: 32px 0px;
 display: flex;
+transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1)
 
 }
 
@@ -189,7 +185,27 @@ display: flex;
     margin-right: 10px;
 }
 
+.current-item-portfolio::after {
+position: absolute;
+content: "";
+bottom: 0;
+width: 76px;
+height: 4px;
+background-color: var(--accent-text-color);
+border-radius: 2px;
+opacity: 1;
+}
 
+.current-item-studio::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    width: 48px;
+    height: 4px;
+    background-color: var(--accent-text-color);
+    border-radius: 2px;
+    opacity: 1;
+}
 /* hero-index */
 
 .hero-section {
@@ -242,10 +258,6 @@ display: flex;
     margin: 0px auto;
     display: flex;
     justify-content: center;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
 }
 
 .btn-first {
@@ -275,9 +287,11 @@ flex-wrap: wrap;
     margin-right: 30px;
     margin-bottom: 30px;
     cursor: pointer;
+    }
+
+.hero-item-link {
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-
 .hero-item-link:hover, .hero-item-link:focus  {
 display: block;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
@@ -321,6 +335,9 @@ margin-bottom: 0px;
     background-color: var(--bcg-second-color);
     text-align: center;
     padding: 6px 22px;
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
 .btn-first-portfolio {
@@ -330,6 +347,9 @@ margin-bottom: 0px;
     text-align: center;
     padding: 6px 22px;
     margin-right: 8px;
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
 .btn-item:first-child {
@@ -388,8 +408,21 @@ margin-bottom: 0px;
 
 .hero-item:hover .hero-item-details{
     transform: translateY(0%);
-
 }
+
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0px;
+    padding: 0px;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+}
+
 
 /* advantages */
 .advantages-list {
@@ -403,6 +436,18 @@ margin-bottom: 0px;
     letter-spacing: 0.03em;
     width: 270px;
     margin-right: 30px;
+}
+
+.advantages-item-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bcg-second-color);
+    border-radius: 4px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    width: 270px;
+    height: 120px;
 }
 
 .advantages-item:last-child {
@@ -422,15 +467,6 @@ margin-bottom: 0px;
     margin: 0px;
 }
 
-.advantages-icons {
-display: block;
-display: flex;
-background-color: var(--bcg-second-color);
-width: 270px;
-height: 120px;
-border-radius: 4px;
-margin-bottom: 30px;
-}
 
 
 
@@ -491,7 +527,6 @@ display: flex;
 
 .team-list {
     display: flex;
-    justify-content: space-between;
 }
 
 .team-item {
@@ -499,6 +534,7 @@ display: flex;
     width: 270px;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 0px 0px 4px 4px;
+    margin-right: 30px;
   }
 
 .team-item:last-child {
@@ -523,6 +559,7 @@ display: flex;
     color: var(--first-text-color);
     margin: 0px;
     min-width: 147px;
+    margin-bottom: 16px;
 }
 
 
@@ -545,7 +582,10 @@ display: flex;
     justify-content: center;
     border-radius: 50%;
     background-color: var(--bcg-first-color);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 } 
+
 .team-icons {
     fill: var(--icons-color);
 }
@@ -604,7 +644,7 @@ border: 1px solid #AFB1B8;
 border-radius: 4px;
 width: 170px;
 height: 92px;
-
+transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-icons {
@@ -636,8 +676,6 @@ fill: var(--accent-text-color);
     padding-top: 60px;
     }
 
-
-
 .all-in-footer {
     display: flex;
     align-items: baseline;
@@ -655,6 +693,7 @@ color: var(--first-title-color);
     font-style: normal;
     color: rgba(255, 255, 255, 0.6);
     display: block;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-mail:hover, .footer-tel:hover, .footer-mail:focus, .footer-tel:focus {
@@ -713,6 +752,7 @@ margin-bottom: 0px;
     justify-content: center;
     border-radius: 50%;
     background-color:rgba(255, 255, 255, 0.1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-icons {
