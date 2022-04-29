@@ -410,6 +410,10 @@ margin-bottom: 0px;
     transform: translateY(0%);
 }
 
+.hero-item-link:focus .hero-item-details {
+    transform: translateY(0%);
+}
+
 .visually-hidden {
     position: absolute;
     white-space: nowrap;
